@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scenario 1 — Urgent Email Attack | SE Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">&gt;_ <span>SE</span>-toolkit</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="email.html" class="active">Email attack</a></li>
+    <li><a href="vishing.html">Vishing</a></li>
+    <li><a href="popup.html">Scareware</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="scenario-header fade-up">
+    <a href="index.html" class="back-link">&#8592; Back to scenarios</a>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+      <span class="card-tag red">Phishing</span>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--text3)">SCENARIO_01</span>
+    </div>
+    <h1 class="scenario-title">Urgent Email Attack</h1>
+    <p class="scenario-subtitle">The attacker impersonates your IT department and creates panic to make you act without thinking.</p>
+  </div>
+
+  <div class="section-label fade-up delay-1">Live simulation — what you would see in your inbox</div>
+
+  <div class="sim-box fade-up delay-1">
+    <div class="sim-bar">
+      <div class="sim-dots">
+        <div class="sim-dot" style="background:#ff5f57"></div>
+        <div class="sim-dot" style="background:#febc2e"></div>
+        <div class="sim-dot" style="background:#28c840"></div>
+      </div>
+      <div class="sim-label">inbox — mail client simulation</div>
+    </div>
+    <div class="sim-body">
+      <div class="email-client">
+        <div class="email-header-bar">
+          <div class="email-field">
+            <span class="ef-label">From:</span>
+            <span class="ef-red">IT-Security@c0mpany-helpdesk.net</span>
+          </div>
+          <div class="email-field">
+            <span class="ef-label">To:</span>
+            <span class="ef-val">you@yourcompany.com</span>
+          </div>
+          <div class="email-field">
+            <span class="ef-label">Date:</span>
+            <span class="ef-val">Today, 09:14 AM</span>
+          </div>
+        </div>
+        <div class="email-subject-bar">
+          &#9888; URGENT: Suspicious login detected — verify your account within 2 hours
+        </div>
+        <div class="email-content">
+          <p>Dear Employee,</p>
+          <p>Our automated security systems have detected <strong>unusual login activity</strong> from an unrecognised device on your account. To protect company data, your account access has been temporarily restricted.</p>
+          <p>You must verify your identity within <strong>2 hours</strong> or your account will be <strong>permanently suspended</strong> and the incident will be escalated to your manager.</p>
+          <p>Click the button below to verify now and restore access:</p>
+          <a href="awareness-email.html" class="fake-btn">&#128274; Verify My Account Now</a>
+          <p style="margin-top:16px;font-size:11px;color:#999;">
+            If you did not trigger this alert, contact IT immediately at: it-support@c0mpany-helpdesk.net<br>
+            &copy; 2026 Company IT Security Team | Do not reply to this email
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label fade-up delay-2">Identified red flags</div>
+
+  <div class="flags-panel fade-up delay-2">
+    <div class="flags-title">&#9888; 5 red flags in this email</div>
+    <div class="flag-row">
+      <div class="flag-num">1</div>
+      <div class="flag-content">
+        <strong>Fake domain with character substitution</strong>
+        <span>"c0mpany-helpdesk.net" — the letter O is replaced with zero. This is a homoglyph attack. Always read email domains character by character.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num">2</div>
+      <div class="flag-content">
+        <strong>Extreme urgency — "2 hours"</strong>
+        <span>Artificial time pressure is the #1 social engineering tactic. It stops you from thinking rationally and checking with your real IT team.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num">3</div>
+      <div class="flag-content">
+        <strong>Threat of severe consequences</strong>
+        <span>"Permanently suspended" and "escalated to your manager" trigger fear and shame — powerful psychological levers attackers exploit.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num">4</div>
+      <div class="flag-content">
+        <strong>Generic greeting</strong>
+        <span>Real company IT departments know your name. "Dear Employee" is a clear sign this email was sent in bulk to many targets.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num">5</div>
+      <div class="flag-content">
+        <strong>Reply-to matches the fake domain</strong>
+        <span>The "contact IT" address also uses the fake domain. Attackers control both sides of the communication.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label fade-up delay-3">How to respond correctly</div>
+
+  <div class="response-box fade-up delay-3">
+    <div class="response-title">&#10003; Correct actions</div>
+    <ul class="response-steps">
+      <li><span class="step-num">1</span>Do NOT click any links — hover over them first to see the real URL</li>
+      <li><span class="step-num">2</span>Check the sender's full email address character by character</li>
+      <li><span class="step-num">3</span>Contact your real IT team via phone or official Slack/Teams channel</li>
+      <li><span class="step-num">4</span>Report the email as phishing using your email client's report button</li>
+      <li><span class="step-num">5</span>Alert your colleagues — if you received it, others likely did too</li>
+    </ul>
+  </div>
+
+  <div class="scenario-nav fade-up delay-4">
+    <a href="index.html" class="nav-btn">&#8592; All scenarios</a>
+    <a href="vishing.html" class="nav-btn primary">Next: Vishing call &#8594;</a>
+  </div>
+
+  <div class="disclaimer fade-up delay-4">
+    <p><strong>Note:</strong> The "Verify My Account Now" button leads to an awareness page, not a real phishing site. No credentials are collected.</p>
+  </div>
+
+</div>
+</body>
+</html>
