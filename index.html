@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Social Engineering Awareness Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">&gt;_ <span>SE</span>-toolkit</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="email.html">Email attack</a></li>
+    <li><a href="vishing.html">Vishing</a></li>
+    <li><a href="popup.html">Scareware</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="hero fade-up">
+    <div class="hero-eyebrow">Educational · Ethical · Awareness</div>
+    <h1>Social Engineering<br><em>Attack Simulator</em></h1>
+    <p class="hero-sub">
+      Hackers don't always break through code — they exploit human psychology.
+      Learn to recognise 3 real-world social engineering attacks before they fool you.
+    </p>
+  </div>
+
+  <div class="stats-row fade-up delay-1">
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--red)">91%</div>
+      <div class="stat-label">Attacks start with email</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--amber)">3</div>
+      <div class="stat-label">Scenarios to explore</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="color:var(--green)">0</div>
+      <div class="stat-label">Data collected</div>
+    </div>
+  </div>
+
+  <div class="section-label fade-up delay-2">Choose a scenario</div>
+
+  <div class="scenario-grid fade-up delay-2">
+    <a href="email.html" class="scenario-card red">
+      <div class="card-num">SCENARIO_01</div>
+      <div class="card-icon">&#9993;</div>
+      <div class="card-title">Urgent email attack</div>
+      <div class="card-desc">A fake IT security email pressures you to click immediately. Spot the red flags before it's too late.</div>
+      <span class="card-tag red">Phishing</span>
+      <div class="card-arrow">&#8599;</div>
+    </a>
+
+    <a href="vishing.html" class="scenario-card amber">
+      <div class="card-num">SCENARIO_02</div>
+      <div class="card-icon">&#128222;</div>
+      <div class="card-title">Vishing call</div>
+      <div class="card-desc">An attacker calls pretending to be IT support and requests your credentials to "fix an urgent issue".</div>
+      <span class="card-tag amber">Voice Phishing</span>
+      <div class="card-arrow">&#8599;</div>
+    </a>
+
+    <a href="popup.html" class="scenario-card blue">
+      <div class="card-num">SCENARIO_03</div>
+      <div class="card-icon">&#9888;</div>
+      <div class="card-title">Scareware popup</div>
+      <div class="card-desc">A browser popup claims your PC is infected and urges you to call a fake support number immediately.</div>
+      <span class="card-tag blue">Scareware</span>
+      <div class="card-arrow">&#8599;</div>
+    </a>
+  </div>
+
+  <div class="section-label fade-up delay-3">Test yourself</div>
+
+  <a href="quiz.html" class="scenario-card fade-up delay-3"
+     style="background:linear-gradient(135deg,var(--bg2),rgba(0,229,160,0.05));
+            border-color:rgba(0,229,160,0.2); margin-bottom:2rem;">
+    <div class="card-num">KNOWLEDGE_CHECK</div>
+    <div class="card-icon">&#127358;</div>
+    <div class="card-title">Take the awareness quiz</div>
+    <div class="card-desc">Think you can spot a social engineering attack in the wild? Test your knowledge with 6 questions across all 3 attack types.</div>
+    <span class="card-tag green">6 Questions</span>
+    <div class="card-arrow" style="color:var(--green)">&#8599;</div>
+  </a>
+
+  <div class="disclaimer fade-up delay-4">
+    <p><strong>Ethical disclaimer:</strong> This toolkit is built for educational and awareness purposes only. No user data, credentials, or personal information is collected, stored, or transmitted at any point. Built by sitaljungkarki-sudo as part of a cybersecurity awareness initiative.</p>
+  </div>
+
+</div>
+</body>
+</html>
