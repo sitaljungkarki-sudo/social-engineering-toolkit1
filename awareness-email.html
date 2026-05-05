@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You Were Phished! | SE Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">&gt;_ <span>SE</span>-toolkit</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="email.html" class="active">Email attack</a></li>
+    <li><a href="vishing.html">Vishing</a></li>
+    <li><a href="popup.html">Scareware</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div style="text-align:center;padding:3rem 1rem 2rem;" class="fade-up">
+    <div style="font-size:48px;margin-bottom:1rem;">&#127919;</div>
+    <div style="display:inline-block;background:var(--red-dim);border:1px solid rgba(255,59,59,0.3);
+                border-radius:20px;padding:5px 16px;font-family:var(--mono);font-size:11px;
+                color:var(--red);letter-spacing:0.1em;margin-bottom:1rem;text-transform:uppercase;">
+      Simulation complete
+    </div>
+    <h1 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem;">
+      You clicked the phishing link.
+    </h1>
+    <p style="font-size:15px;color:var(--text2);max-width:480px;margin:0 auto;line-height:1.7;">
+      In a real attack, you would have just handed your credentials to an attacker.
+      But this was a safe educational simulation — no data was collected.
+    </p>
+  </div>
+
+  <div class="response-box fade-up delay-1"
+       style="background:var(--red-dim);border-color:rgba(255,59,59,0.25);margin-bottom:2rem;">
+    <div class="response-title" style="color:var(--red)">What would have happened in a real attack</div>
+    <ul class="response-steps">
+      <li><span class="step-num" style="background:var(--red-dim);border-color:rgba(255,59,59,0.3);color:var(--red)">1</span>You would be redirected to a convincing fake login page</li>
+      <li><span class="step-num" style="background:var(--red-dim);border-color:rgba(255,59,59,0.3);color:var(--red)">2</span>Your username and password would be stolen instantly</li>
+      <li><span class="step-num" style="background:var(--red-dim);border-color:rgba(255,59,59,0.3);color:var(--red)">3</span>The attacker would log into your real accounts</li>
+      <li><span class="step-num" style="background:var(--red-dim);border-color:rgba(255,59,59,0.3);color:var(--red)">4</span>They could access sensitive company data or impersonate you</li>
+    </ul>
+  </div>
+
+  <div class="section-label fade-up delay-2">What you missed</div>
+
+  <div class="flags-panel fade-up delay-2">
+    <div class="flags-title">Key red flags from that email</div>
+    <div class="flag-row">
+      <div class="flag-num">1</div>
+      <div class="flag-content">
+        <strong>The domain was fake</strong>
+        <span>"c0mpany-helpdesk.net" — the zero replacing O is a classic homoglyph trick.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num">2</div>
+      <div class="flag-content">
+        <strong>The urgency was manufactured</strong>
+        <span>"2 hours" and "permanently suspended" were designed to panic you into clicking without thinking.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num">3</div>
+      <div class="flag-content">
+        <strong>Real IT never emails like this</strong>
+        <span>Legitimate IT security teams don't send bulk urgency emails with countdown timers.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scenario-nav fade-up delay-3">
+    <a href="email.html" class="nav-btn">&#8592; Review the scenario</a>
+    <a href="quiz.html" class="nav-btn primary">Test your knowledge &#8594;</a>
+  </div>
+
+</div>
+</body>
+</html>
