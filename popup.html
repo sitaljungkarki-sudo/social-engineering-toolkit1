@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scenario 3 — Scareware Popup | SE Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">&gt;_ <span>SE</span>-toolkit</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="email.html">Email attack</a></li>
+    <li><a href="vishing.html">Vishing</a></li>
+    <li><a href="popup.html" class="active">Scareware</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="scenario-header fade-up">
+    <a href="index.html" class="back-link">&#8592; Back to scenarios</a>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+      <span class="card-tag blue">Scareware</span>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--text3)">SCENARIO_03</span>
+    </div>
+    <h1 class="scenario-title">Scareware Browser Popup</h1>
+    <p class="scenario-subtitle">Scareware uses fake virus alerts to frighten victims into calling fraudulent numbers or downloading malicious software — while they're just browsing normally.</p>
+  </div>
+
+  <div class="section-label fade-up delay-1">Live simulation — try clicking both buttons to see what happens</div>
+
+  <div class="sim-box fade-up delay-1" style="border-color:rgba(77,166,255,0.2)">
+    <div class="sim-bar" style="background:rgba(77,166,255,0.05)">
+      <div class="sim-dots">
+        <div class="sim-dot" style="background:#ff5f57"></div>
+        <div class="sim-dot" style="background:#febc2e"></div>
+        <div class="sim-dot" style="background:#28c840"></div>
+      </div>
+      <div class="sim-label" style="color:var(--blue)">browser popup simulation</div>
+    </div>
+    <div class="sim-body">
+      <div style="background:#1a1a2e;border-radius:var(--radius);padding:2rem;text-align:center;">
+        <div style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.3);margin-bottom:1rem;letter-spacing:0.1em">BROWSING NORMALLY... SUDDENLY:</div>
+        <div style="background:#fff;border-radius:8px;max-width:380px;margin:0 auto;
+                    overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+          <div style="background:#c0392b;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="color:#fff;font-size:12px;font-weight:600;font-family:Arial">&#9888; Windows Security Alert</span>
+            <span style="color:rgba(255,255,255,0.6);font-size:16px;cursor:pointer" onclick="closePopup()">&times;</span>
+          </div>
+          <div style="padding:1.25rem;text-align:center" id="popup-inner">
+            <div style="width:52px;height:52px;background:#fff3cd;border-radius:50%;
+                        display:flex;align-items:center;justify-content:center;
+                        margin:0 auto 12px;font-size:24px">&#9888;</div>
+            <h3 style="font-size:15px;color:#c0392b;margin-bottom:8px;font-family:Arial;font-weight:700">CRITICAL VIRUS DETECTED</h3>
+            <p style="font-size:12px;color:#333;line-height:1.5;margin-bottom:6px;font-family:Arial">
+              <strong>5 malware infections</strong> found on your computer.<br>
+              Your personal data and banking info are at risk.
+            </p>
+            <p style="font-size:12px;color:#c0392b;font-weight:600;font-family:Arial;margin-bottom:16px">
+              &#9660; DO NOT CLOSE THIS WINDOW &#9660;<br>
+              Call Microsoft Support Immediately:<br>
+              <span style="font-size:15px">0800-XXX-XXXX</span>
+            </p>
+            <div style="display:flex;gap:8px;justify-content:center">
+              <button onclick="callFake()"
+                style="padding:9px 16px;background:#c0392b;color:#fff;border:none;
+                       border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;font-family:Arial">
+                Call Now — Remove Virus
+              </button>
+              <button onclick="closePopup()"
+                style="padding:9px 16px;background:#f0f0f0;color:#555;border:none;
+                       border-radius:4px;font-size:12px;cursor:pointer;font-family:Arial">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.2)">
+          Try clicking both buttons — each reveals what would happen in a real attack
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label fade-up delay-2">Identified red flags</div>
+
+  <div class="flags-panel fade-up delay-2" style="border-color:rgba(77,166,255,0.15)">
+    <div class="flags-title" style="color:var(--blue)">&#128269; 5 red flags in this popup</div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--blue-dim);border-color:rgba(77,166,255,0.3);color:var(--blue)">1</div>
+      <div class="flag-content">
+        <strong>Browsers cannot detect viruses</strong>
+        <span>This is the most important fact: a web browser has no ability to scan your computer for malware. Any browser popup claiming to detect viruses is 100% fake.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--blue-dim);border-color:rgba(77,166,255,0.3);color:var(--blue)">2</div>
+      <div class="flag-content">
+        <strong>Microsoft never alerts via browser</strong>
+        <span>Microsoft communicates through Windows Security Centre (a desktop app), not browser popups. Any browser popup claiming to be from Microsoft is fraudulent.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--blue-dim);border-color:rgba(77,166,255,0.3);color:var(--blue)">3</div>
+      <div class="flag-content">
+        <strong>Phone number in a security alert</strong>
+        <span>Real antivirus software never asks you to call a phone number. That number connects to scammers who charge hundreds for fake services or install actual malware remotely.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--blue-dim);border-color:rgba(77,166,255,0.3);color:var(--blue)">4</div>
+      <div class="flag-content">
+        <strong>"Do NOT close this window"</strong>
+        <span>Closing the tab is actually the correct first step. Attackers add this warning because their popup disappears the moment you close it.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--blue-dim);border-color:rgba(77,166,255,0.3);color:var(--blue)">5</div>
+      <div class="flag-content">
+        <strong>Specific false numbers — "5 malware infections"</strong>
+        <span>Attackers use specific numbers to sound credible. "5 infections" sounds more believable than "many". Specificity creates false authority.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label fade-up delay-3">How to respond correctly</div>
+
+  <div class="response-box fade-up delay-3">
+    <div class="response-title">&#10003; Correct actions when you see this</div>
+    <ul class="response-steps">
+      <li><span class="step-num">1</span>Do NOT call the number — it connects to scammers, not Microsoft</li>
+      <li><span class="step-num">2</span>Close the browser tab immediately (or force-quit the browser)</li>
+      <li><span class="step-num">3</span>Run a scan with your actual installed antivirus software</li>
+      <li><span class="step-num">4</span>Clear your browser cache and cookies afterwards</li>
+      <li><span class="step-num">5</span>Report the website URL to your organisation's security team</li>
+    </ul>
+  </div>
+
+  <div class="scenario-nav fade-up delay-4">
+    <a href="vishing.html" class="nav-btn">&#8592; Scenario 2: Vishing</a>
+    <a href="quiz.html" class="nav-btn primary">Take the quiz &#8594;</a>
+  </div>
+
+  <div class="disclaimer fade-up delay-4">
+    <p><strong>Note:</strong> This popup is a visual simulation only. No malware is present, no calls are made, and the phone number shown is fictional.</p>
+  </div>
+
+</div>
+
+<script>
+function callFake() {
+  document.getElementById('popup-inner').innerHTML = `
+    <div style="padding:0.5rem 0">
+      <div style="font-size:36px;margin-bottom:12px">&#128222;</div>
+      <h3 style="font-size:14px;color:#c0392b;margin-bottom:10px;font-family:Arial">
+        In a real attack, you just called a scammer.
+      </h3>
+      <p style="font-size:12px;color:#555;line-height:1.6;font-family:Arial">
+        They would charge you £200–£500 for fake "removal services", ask
+        for remote access to install actual malware, or steal your payment details.
+        The popup itself was the entire attack.
+      </p>
+    </div>`;
+}
+function closePopup() {
+  document.getElementById('popup-inner').innerHTML = `
+    <div style="padding:0.5rem 0">
+      <div style="font-size:36px;margin-bottom:12px">&#10003;</div>
+      <h3 style="font-size:14px;color:#27ae60;margin-bottom:10px;font-family:Arial">
+        Correct! Closing the tab is the right move.
+      </h3>
+      <p style="font-size:12px;color:#555;line-height:1.6;font-family:Arial">
+        Browsers cannot detect viruses. Any popup claiming otherwise is scareware.
+        Close the tab, run your real antivirus, and move on.
+      </p>
+    </div>`;
+}
+</script>
+
+</body>
+</html>
