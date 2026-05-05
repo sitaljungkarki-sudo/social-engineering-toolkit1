@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Awareness Quiz | SE Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">&gt;_ <span>SE</span>-toolkit</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="email.html">Email attack</a></li>
+    <li><a href="vishing.html">Vishing</a></li>
+    <li><a href="popup.html">Scareware</a></li>
+    <li><a href="quiz.html" class="active">Quiz</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="scenario-header fade-up">
+    <a href="index.html" class="back-link">&#8592; Back to scenarios</a>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+      <span class="card-tag green">6 Questions</span>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--text3)">KNOWLEDGE_CHECK</span>
+    </div>
+    <h1 class="scenario-title">Awareness Quiz</h1>
+    <p class="scenario-subtitle">Think you can spot social engineering in the wild? Test yourself across all three attack types.</p>
+  </div>
+
+  <div id="quiz-container" class="fade-up delay-1">
+    <div class="quiz-progress" id="progress-bar"></div>
+    <div class="quiz-card" id="quiz-card">
+      <div class="quiz-q-num" id="q-num"></div>
+      <div class="quiz-question" id="q-text"></div>
+      <div class="quiz-options" id="q-opts"></div>
+      <div class="quiz-feedback" id="q-feedback"></div>
+    </div>
+  </div>
+
+  <div id="score-container" style="display:none" class="fade-up">
+    <div class="quiz-card" style="text-align:center;padding:2.5rem 2rem">
+      <div class="score-ring" id="score-ring">
+        <div class="score-number" id="score-num">0</div>
+        <div class="score-total" id="score-tot">/6</div>
+      </div>
+      <div class="score-message" id="score-msg"></div>
+      <div class="score-sub" id="score-sub"></div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:1.5rem;flex-wrap:wrap">
+      <button onclick="restartQuiz()" class="nav-btn"
+        style="font-size:13px;padding:10px 20px;cursor:pointer;font-family:var(--sans)">
+        &#8635; Try again
+      </button>
+      <a href="index.html" class="nav-btn primary" style="font-size:13px;padding:10px 20px">
+        Review scenarios &#8594;
+      </a>
+    </div>
+  </div>
+
+  <div class="disclaimer fade-up delay-3" style="margin-top:2rem">
+    <p><strong>About this quiz:</strong> Questions are drawn from real social engineering techniques documented in CEH, Security+, and SANS Institute cybersecurity training programmes.</p>
+  </div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    category: "Email attack",
+    q: "You receive an urgent email from 'IT-Security@c0mpany-helpdesk.net' saying your account will be suspended in 2 hours. What is the first thing you should check?",
+    opts: [
+      "Click the link to see if the login page looks real",
+      "Read the sender's email address character by character for fake domains",
+      "Reply to the email asking if it's legitimate",
+      "Forward it to your manager immediately"
+    ],
+    correct: 1,
+    explain: "The sender's domain is the most reliable first indicator. 'c0mpany-helpdesk.net' uses a zero instead of the letter O — a homoglyph attack. Always check the full domain before doing anything else."
+  },
+  {
+    category: "Email attack",
+    q: "A colleague already clicked a phishing link and entered their password. What should they do immediately?",
+    opts: [
+      "Wait and see if anything happens to their account",
+      "Change their password on the real company portal and report it to IT security",
+      "Log out of all devices and do nothing else",
+      "Reply to the phishing email demanding their data back"
+    ],
+    correct: 1,
+    explain: "Time is critical after a credential compromise. Change the password on the official portal immediately, enable MFA if not already active, and report the incident so IT can monitor for suspicious activity."
+  },
+  {
+    category: "Vishing",
+    q: "An unexpected caller says they're from your company's IT helpdesk and need your password to fix an urgent security issue. What do you do?",
+    opts: [
+      "Give them the password since they know your company name",
+      "Give them a wrong password to test if they're real",
+      "Politely refuse, hang up, and call IT back on the official number",
+      "Ask them to send an email instead, then give the password over email"
+    ],
+    correct: 2,
+    explain: "No legitimate IT professional ever needs your password. Refuse, end the call, and verify by contacting IT through an officially known number — never one provided by the caller. Caller ID is trivially spoofed."
+  },
+  {
+    category: "Vishing",
+    q: "Why is caller ID unreliable as a way to verify who is calling you?",
+    opts: [
+      "Caller ID only works on mobile, not landlines",
+      "Caller ID can easily be spoofed to display any name or number",
+      "Caller ID is always accurate but can be delayed",
+      "Caller ID is only unreliable on international calls"
+    ],
+    correct: 1,
+    explain: "Caller ID spoofing is easy with widely available tools. Attackers can display any number or organisation name they choose. Always verify through an independent channel."
+  },
+  {
+    category: "Scareware",
+    q: "A browser popup claims your PC has 5 viruses and tells you to call 'Microsoft Support' immediately. What should you do?",
+    opts: [
+      "Call the number — it sounds like a real Microsoft alert",
+      "Download the security tool the popup recommends",
+      "Close the browser tab and run your real installed antivirus",
+      "Restart your computer then call the number to be safe"
+    ],
+    correct: 2,
+    explain: "Browsers cannot scan for viruses — this capability does not exist in web browsers. Any popup claiming otherwise is 100% fake. Microsoft never sends alerts through browser popups. Close the tab and run your real antivirus."
+  },
+  {
+    category: "Scareware",
+    q: "What is the primary goal of scareware attackers who put a phone number in a fake virus alert?",
+    opts: [
+      "To get you to install a real antivirus they're selling",
+      "To connect you with scammers who charge for fake services or install real malware via remote access",
+      "To collect your phone number for spam marketing",
+      "To redirect you to a phishing website through the call"
+    ],
+    correct: 1,
+    explain: "Tech support scammers use scareware to drive phone calls. Once they have you, they charge £200-£500 for fake removal services, request remote access to install actual malware, or extract payment details."
+  }
+];
+
+let current = 0, score = 0, answered = false;
+
+function buildProgress() {
+  const bar = document.getElementById('progress-bar');
+  bar.innerHTML = '';
+  questions.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'progress-dot' + (i < current ? ' done' : i === current ? ' active' : '');
+    bar.appendChild(dot);
+  });
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = questions[current];
+  document.getElementById('q-num').textContent = `${q.category.toUpperCase()} · QUESTION ${current + 1} OF ${questions.length}`;
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('q-feedback').className = 'quiz-feedback';
+  document.getElementById('q-feedback').textContent = '';
+  const opts = document.getElementById('q-opts');
+  opts.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.innerHTML = `<span class="opt-key">${String.fromCharCode(65+i)}</span>${opt}`;
+    btn.onclick = () => selectAnswer(i, btn);
+    opts.appendChild(btn);
+  });
+  buildProgress();
+}
+
+function selectAnswer(i, btn) {
+  if (answered) return;
+  answered = true;
+  const q = questions[current];
+  document.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
+  document.querySelectorAll('.quiz-opt')[q.correct].classList.add('correct');
+  const fb = document.getElementById('q-feedback');
+  if (i === q.correct) {
+    score++;
+    btn.classList.add('correct');
+    fb.textContent = '✓ Correct — ' + q.explain;
+    fb.className = 'quiz-feedback correct show';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '✗ Not quite — ' + q.explain;
+    fb.className = 'quiz-feedback wrong show';
+  }
+  setTimeout(() => {
+    current++;
+    if (current < questions.length) renderQuestion();
+    else showScore();
+  }, 2800);
+}
+
+function showScore() {
+  document.getElementById('quiz-container').style.display = 'none';
+  document.getElementById('score-container').style.display = 'block';
+  document.getElementById('score-num').textContent = score;
+  const ring = document.getElementById('score-ring');
+  const msg  = document.getElementById('score-msg');
+  const sub  = document.getElementById('score-sub');
+  if (score === 6) {
+    ring.style.borderColor = 'var(--green)';
+    document.getElementById('score-num').style.color = 'var(--green)';
+    msg.textContent = 'Perfect score — excellent work!';
+    sub.textContent = 'You have a strong understanding of social engineering tactics. Share this toolkit with someone who needs it.';
+  } else if (score >= 4) {
+    ring.style.borderColor = 'var(--amber)';
+    document.getElementById('score-num').style.color = 'var(--amber)';
+    msg.textContent = 'Good awareness — almost there.';
+    sub.textContent = 'Review the scenarios you missed and try again. Each question links to a real attack technique.';
+  } else {
+    ring.style.borderColor = 'var(--red)';
+    document.getElementById('score-num').style.color = 'var(--red)';
+    msg.textContent = 'Keep learning — you need more practice.';
+    sub.textContent = 'Go back through all three scenarios carefully before retaking the quiz.';
+  }
+}
+
+function restartQuiz() {
+  current = 0; score = 0;
+  document.getElementById('score-container').style.display = 'none';
+  document.getElementById('quiz-container').style.display = 'block';
+  renderQuestion();
+}
+
+renderQuestion();
+</script>
+
+</body>
+</html>
