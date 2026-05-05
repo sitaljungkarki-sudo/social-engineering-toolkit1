@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scenario 2 — Vishing Call | SE Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">&gt;_ <span>SE</span>-toolkit</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="email.html">Email attack</a></li>
+    <li><a href="vishing.html" class="active">Vishing</a></li>
+    <li><a href="popup.html">Scareware</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <div class="scenario-header fade-up">
+    <a href="index.html" class="back-link">&#8592; Back to scenarios</a>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+      <span class="card-tag amber">Voice Phishing</span>
+      <span style="font-family:var(--mono);font-size:10px;color:var(--text3)">SCENARIO_02</span>
+    </div>
+    <h1 class="scenario-title">Vishing (Voice Phishing)</h1>
+    <p class="scenario-subtitle">Vishing uses phone calls to manipulate victims. The attacker impersonates trusted authority figures to extract information verbally.</p>
+  </div>
+
+  <div class="section-label fade-up delay-1">Live simulation — a call you might receive at work</div>
+
+  <div class="sim-box fade-up delay-1" style="border-color:rgba(255,170,0,0.2)">
+    <div class="sim-bar" style="background:rgba(255,170,0,0.05)">
+      <div class="sim-dots">
+        <div class="sim-dot" style="background:#ff5f57"></div>
+        <div class="sim-dot" style="background:#febc2e"></div>
+        <div class="sim-dot" style="background:#28c840"></div>
+      </div>
+      <div class="sim-label" style="color:var(--amber)">incoming call — phone simulation</div>
+    </div>
+    <div class="sim-body">
+
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);
+                  padding:1rem;margin-bottom:1.25rem;text-align:center;">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:6px;letter-spacing:0.1em">INCOMING CALL</div>
+        <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:2px">+44 0800 123 456</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--amber)">IT Helpdesk — Internal</div>
+      </div>
+
+      <div class="call-container">
+        <div class="call-bubble attacker-row">
+          <span class="caller-badge attacker">ATTACKER</span>
+          <div class="bubble-text">"Hello, this is James from the IT helpdesk. Am I speaking with a member of the finance team?"</div>
+        </div>
+        <div class="call-bubble">
+          <span class="caller-badge victim">YOU</span>
+          <div class="bubble-text">"Yes, that's me. How can I help?"</div>
+        </div>
+        <div class="call-bubble attacker-row">
+          <span class="caller-badge attacker">ATTACKER</span>
+          <div class="bubble-text">"We've detected a critical security breach affecting finance accounts. I'm calling affected users personally to resolve this urgently before it escalates. I just need to confirm your employee ID and reset your credentials remotely — it'll only take two minutes."</div>
+        </div>
+        <div class="call-bubble">
+          <span class="caller-badge victim">YOU</span>
+          <div class="bubble-text">"Oh no, that sounds serious. My employee ID is... EM-2047..."</div>
+        </div>
+        <div class="call-bubble attacker-row">
+          <span class="caller-badge attacker">ATTACKER</span>
+          <div class="bubble-text">"Perfect, thank you. Now I need your current password so I can migrate the account safely. Don't worry — this line is encrypted and I'm legally required to keep all details confidential."</div>
+        </div>
+        <div style="background:var(--red-dim);border:1px solid rgba(255,59,59,0.25);
+                    border-radius:var(--radius);padding:10px 14px;margin-top:6px;">
+          <div style="font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:0.05em">
+            &#9888; STOP — this is where the attack succeeds if you continue
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label fade-up delay-2">Identified red flags</div>
+
+  <div class="flags-panel fade-up delay-2" style="border-color:rgba(255,170,0,0.15)">
+    <div class="flags-title" style="color:var(--amber)">&#9888; 5 red flags in this call</div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--amber-dim);border-color:rgba(255,170,0,0.3);color:var(--amber)">1</div>
+      <div class="flag-content">
+        <strong>Unsolicited inbound call</strong>
+        <span>Real IT helpdesks don't call you about problems you didn't report. If there's truly a breach, IT uses verified internal channels first.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--amber-dim);border-color:rgba(255,170,0,0.3);color:var(--amber)">2</div>
+      <div class="flag-content">
+        <strong>Asking for your password verbally</strong>
+        <span>No legitimate IT professional ever asks for your password. Password resets are done through verified self-service portals — never over a phone call.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--amber-dim);border-color:rgba(255,170,0,0.3);color:var(--amber)">3</div>
+      <div class="flag-content">
+        <strong>Requesting your employee ID</strong>
+        <span>Your employee ID alone is enough for an attacker to impersonate you in further attacks. Never confirm internal identifiers to unverified callers.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--amber-dim);border-color:rgba(255,170,0,0.3);color:var(--amber)">4</div>
+      <div class="flag-content">
+        <strong>False authority and urgency</strong>
+        <span>"Critical breach", "legally required" — these phrases manufacture authority and fear to stop you verifying who you're actually speaking to.</span>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-num" style="background:var(--amber-dim);border-color:rgba(255,170,0,0.3);color:var(--amber)">5</div>
+      <div class="flag-content">
+        <strong>Caller ID can be spoofed</strong>
+        <span>The display showing "IT Helpdesk — Internal" means nothing. Phone caller ID is trivially easy to fake using widely available tools.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label fade-up delay-3">How to respond correctly</div>
+
+  <div class="response-box fade-up delay-3">
+    <div class="response-title">&#10003; Correct actions during this call</div>
+    <ul class="response-steps">
+      <li><span class="step-num">1</span>Politely say: "I need to verify your identity before continuing"</li>
+      <li><span class="step-num">2</span>Ask for their employee number and department, then hang up</li>
+      <li><span class="step-num">3</span>Call IT back on the official number from your company directory</li>
+      <li><span class="step-num">4</span>Never give your password to anyone — even real IT doesn't need it</li>
+      <li><span class="step-num">5</span>Report the call to your security team immediately</li>
+    </ul>
+  </div>
+
+  <div class="scenario-nav fade-up delay-4">
+    <a href="email.html" class="nav-btn">&#8592; Scenario 1: Email</a>
+    <a href="popup.html" class="nav-btn primary">Next: Scareware popup &#8594;</a>
+  </div>
+
+  <div class="disclaimer fade-up delay-4">
+    <p><strong>Note:</strong> This is a fictional call script for educational purposes only. All names and numbers shown are fabricated.</p>
+  </div>
+
+</div>
+</body>
+</html>
